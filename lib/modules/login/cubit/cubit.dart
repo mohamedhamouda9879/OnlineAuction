@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:onlineauction/modules/login/cubit/states.dart';
@@ -11,7 +12,9 @@ class OnlineLoginCubit extends Cubit<OnlineAuctionLoginStates> {
   bool isPasswordShowen = true;
 
   void changePasswordVisibility() {
-    print("isPasswordShowen : $isPasswordShowen");
+    if (kDebugMode) {
+      print("isPasswordShowen : $isPasswordShowen");
+    }
     isPasswordShowen = !isPasswordShowen;
     sufix = isPasswordShowen
         ? Icons.visibility_outlined

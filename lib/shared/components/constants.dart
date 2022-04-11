@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, avoid_print
+
 import 'package:onlineauction/modules/login/login.dart';
 import 'package:onlineauction/shared/components/components.dart';
 import 'package:onlineauction/shared/network/local/cache_helper.dart';

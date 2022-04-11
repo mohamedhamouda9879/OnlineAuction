@@ -5,8 +5,8 @@ import 'package:hexcolor/hexcolor.dart';
 import 'colors.dart';
 
 ThemeData darkTheme = ThemeData(
-  primarySwatch: defaultColor,
-  textTheme: TextTheme(
+  //primarySwatch: defaultColor,
+  textTheme: const TextTheme(
       bodyText1: TextStyle(
     fontSize: 18.0,
     fontWeight: FontWeight.w600,
@@ -21,29 +21,28 @@ ThemeData darkTheme = ThemeData(
   scaffoldBackgroundColor: HexColor('333739'),
   appBarTheme: AppBarTheme(
       titleSpacing: 20.0,
-      backwardsCompatibility: false,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: HexColor('333739'),
         statusBarIconBrightness: Brightness.light,
       ),
       backgroundColor: HexColor('333739'),
       elevation: 0.0,
-      iconTheme: IconThemeData(
+      iconTheme: const IconThemeData(
         color: Colors.white,
       ),
-      titleTextStyle: TextStyle(
+      titleTextStyle: const TextStyle(
           color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
 );
 
 ThemeData lightTheme = ThemeData(
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
         bodyText1: TextStyle(
       fontSize: 18.0,
       fontWeight: FontWeight.w600,
       color: Colors.black,
     )),
-    primarySwatch: defaultColor,
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    //primarySwatch: defaultColor,
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
       selectedItemColor: Colors.deepOrange,
       unselectedItemColor: Colors.grey,
@@ -51,9 +50,8 @@ ThemeData lightTheme = ThemeData(
       backgroundColor: Colors.white,
     ),
     scaffoldBackgroundColor: Colors.white,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
         titleSpacing: 20.0,
-        backwardsCompatibility: false,
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: Colors.white,
           statusBarIconBrightness: Brightness.dark,
