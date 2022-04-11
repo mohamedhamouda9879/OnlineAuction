@@ -1,7 +1,10 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:onlineauction/shared/styles/colors.dart';
 
 Widget defaultButton({
   double width = double.infinity,
@@ -13,12 +16,12 @@ Widget defaultButton({
 }) =>
     Container(
       width: width,
-      height: 40.0,
+      height: 50.0,
       child: MaterialButton(
         onPressed: function,
         child: Text(
           isUpperCase ? text.toUpperCase() : text,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
       ),
       decoration: BoxDecoration(
@@ -74,84 +77,186 @@ Widget defaultFormField({
                 ),
               )
             : null,
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
       ),
     );
 
-Widget CategoryItem(BuildContext context, double width, double height,
-        String? image, String? titleEg, String? titleAr, Function function) =>
-    GestureDetector(
-      onTap: () {
-        function();
-      },
-      child: Card(
-        child: Stack(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(3.0),
-              width: MediaQuery.of(context).size.width,
-              child: CachedNetworkImage(
-                width: width,
-                height: height,
-                imageUrl: 'https://whitecompressor.com/storage/${image}',
-                progressIndicatorBuilder: (context, url, downloadProgress) =>
-                    CircularProgressIndicator(value: downloadProgress.progress),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
+Widget buildGridProduct(/*ProductModel model, context*/) => Container(
+      color: Colors.white,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            alignment: AlignmentDirectional.bottomStart,
+            children: [
+              const Image(
+                image: NetworkImage(
+                    'https://images.unsplash.com/photo-1580910051074-3eb694886505?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHBob25lfGVufDB8fDB8fA%3D%3D&w=1000&q=80'),
+                width: double.infinity,
+                height: 200.0,
               ),
-            ),
-            Container(
-              margin: EdgeInsets.all(4.0),
-              alignment: Alignment.bottomRight,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(2.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: Colors.black54,
-                          ),
-                          child: Text(
-                            '${titleEg}',
-                            style: GoogleFonts.tajawal(
-                              fontSize: 20,
-                              color: Colors.white,
-
-                              //backgroundColor: Colors.black54,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Spacer(),
-                        Container(
-                          padding: EdgeInsets.all(2.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: Colors.black54,
-                          ),
-                          child: Text(
-                            '${titleAr}',
-                            style: GoogleFonts.tajawal(
-                              fontSize: 20,
-                              color: Colors.white,
-
-                              //backgroundColor: Colors.black54,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ],
+              if (true)
+                Container(
+                  color: Colors.red,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 5.0,
+                  ),
+                  child: const Text(
+                    'DISCOUNT',
+                    style: TextStyle(
+                      fontSize: 8.0,
+                      color: Colors.white,
                     ),
                   ),
-                ],
+                ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Model Name ',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    height: 1.3,
+                  ),
+                ),
+                Row(
+                  children: [
+                    const Text(
+                      '15',
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        color: defaultColor,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 5.0,
+                    ),
+                    if (true)
+                      const Text(
+                        'Closed',
+                        style: TextStyle(
+                          fontSize: 10.0,
+                          color: Colors.grey,
+                          decoration: TextDecoration.lineThrough,
+                        ),
+                      ),
+                    const Spacer(),
+                    IconButton(
+                      onPressed: () {
+                        // ShopCubit.get(context).ChangeFavorites(model.id);
+
+                        // print(model.id);
+                      },
+                      icon: const CircleAvatar(
+                        radius: 15.0,
+
+                        backgroundColor: defaultColor,
+
+                        // ShopCubit.get(context).favorites![model.id]!
+
+                        //     ? defaultColor
+
+                        //     : Colors.grey,
+
+                        child: Icon(
+                          Icons.favorite_border,
+                          size: 14.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                defaultButton(
+                    function: (() {}),
+                    text: 'المزايدة',
+                    radius: 12,
+                    background: Colors.orange)
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+
+Widget CategoryItem(
+        BuildContext context,
+        double width,
+        double height,
+        /*String? image, String? titleEg,*/ String? titleAr,
+        Function function) =>
+    Padding(
+      padding: const EdgeInsets.all(17.0),
+      child: GestureDetector(
+        onTap: () {
+          function();
+        },
+        child: Card(
+          shape: RoundedRectangleBorder(
+            side: const BorderSide(width: 1, color: Colors.red),
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          elevation: 12.0,
+          shadowColor: defaultColor,
+          child: Stack(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(3.0),
+                width: MediaQuery.of(context).size.width,
+                child: CachedNetworkImage(
+                  width: width,
+                  height: height,
+                  imageUrl:
+                      'https://fdn.gsmarena.com/imgroot/news/19/12/top-phones-of-2019/-727/gsmarena_001.jpg',
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      CircularProgressIndicator(
+                          value: downloadProgress.progress),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                ),
               ),
-            )
-          ],
+              Container(
+                margin: const EdgeInsets.all(4.0),
+                alignment: Alignment.bottomRight,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(2.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                              color: Colors.black54,
+                            ),
+                            child: Text(
+                              '$titleAr',
+                              style: GoogleFonts.tajawal(
+                                fontSize: 20,
+                                color: Colors.white,
+
+                                //backgroundColor: Colors.black54,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -191,6 +296,7 @@ void showToast({required String message, required ToastStates toastStates}) =>
         textColor: Colors.white,
         fontSize: 16.0);
 
+// ignore: constant_identifier_names
 enum ToastStates { SUCCESS, EROOR, WARNING }
 Color chooseToastColor(ToastStates states) {
   Color color;

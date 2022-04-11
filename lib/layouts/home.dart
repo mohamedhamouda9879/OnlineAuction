@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:onlineauction/layouts/cubit/cubit.dart';
 import 'package:onlineauction/layouts/cubit/states.dart';
+import 'package:onlineauction/shared/styles/colors.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,9 +19,9 @@ class HomeScreen extends StatelessWidget {
           return Scaffold(
             body: cubit.bottomScreens[cubit.currentIndex],
             bottomNavigationBar: CurvedNavigationBar(
-              backgroundColor: Colors.blueAccent,
+              backgroundColor: defaultColor,
               index: cubit.currentIndex,
-              items: <Widget>[
+              items: const <Widget>[
                 Icon(
                   Icons.home,
                   size: 30,

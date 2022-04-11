@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:conditional_builder_rec/conditional_builder_rec.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,6 +15,8 @@ class RegisterScreen extends StatelessWidget {
   var rePasswordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
   String? compare;
+
+  RegisterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,15 +59,15 @@ class RegisterScreen extends StatelessWidget {
                         Image.asset(
                           'assets/images/logo.jpg',
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 15.0,
                         ),
-                        Text(
+                        const Text(
                           'Sign up To Your Account',
                           style: TextStyle(
                               fontSize: 18.0, fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20.0,
                         ),
                         defaultFormField(
@@ -73,11 +77,12 @@ class RegisterScreen extends StatelessWidget {
                             if (value!.isEmpty) {
                               return 'please enter your Name';
                             }
+                            return null;
                           },
                           label: 'Name',
                           prefix: Icons.person,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30.0,
                         ),
                         defaultFormField(
@@ -87,11 +92,12 @@ class RegisterScreen extends StatelessWidget {
                             if (value!.isEmpty) {
                               return 'please enter your email';
                             }
+                            return null;
                           },
                           label: 'Email',
                           prefix: Icons.email,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30.0,
                         ),
                         defaultFormField(
@@ -103,6 +109,7 @@ class RegisterScreen extends StatelessWidget {
                               return 'password is too short';
                             }
                             compare = value;
+                            return null;
                           },
                           isPassword:
                               OnlineRegisterCubit.get(context).isPassword,
@@ -114,7 +121,7 @@ class RegisterScreen extends StatelessWidget {
                           lines: 1,
                           prefix: Icons.lock_outline,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30.0,
                         ),
                         defaultFormField(
@@ -128,6 +135,7 @@ class RegisterScreen extends StatelessWidget {
                             if (compare != value) {
                               return 'wrong password';
                             }
+                            return null;
                           },
                           isPassword:
                               OnlineRegisterCubit.get(context).isPassword,
@@ -139,7 +147,7 @@ class RegisterScreen extends StatelessWidget {
                           lines: 1,
                           prefix: Icons.lock_outline,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30.0,
                         ),
                         ConditionalBuilderRec(
@@ -162,15 +170,15 @@ class RegisterScreen extends StatelessWidget {
                             radius: 12.0,
                           ),
                           fallback: (context) =>
-                              Center(child: CircularProgressIndicator()),
+                              const Center(child: CircularProgressIndicator()),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 15.0,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('Have An Account?'),
+                            const Text('Have An Account?'),
                             defaultTextButton(
                                 function: () {
                                   NavigateTo(context, LoginScreen());
