@@ -11,115 +11,128 @@ import 'package:onlineauction/shared/styles/colors.dart';
 import 'package:shimmer/shimmer.dart';
 
 class DetailsScreen extends StatelessWidget {
-  int endTime = DateTime.now().millisecondsSinceEpoch + 1000 * 30;
-
-  DetailsScreen({Key? key}) : super(key: key);
+  int endTime = DateTime.now().millisecondsSinceEpoch + 100000 * 30;
+  String name;
+  DetailsScreen(this.name);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Card(
-              elevation: 12.0,
-              child: Container(
-                height: 300,
-                alignment: Alignment.center,
-                margin:
-                    const EdgeInsets.symmetric(vertical: 20.0, horizontal: 8.0),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: defaultColor,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Card(
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(width: 1, color: Colors.red),
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                elevation: 12.0,
+                shadowColor: defaultColor,
                 child: Container(
-                  padding: const EdgeInsets.all(3.0),
-                  width: MediaQuery.of(context).size.width,
-                  child: CachedNetworkImage(
-                    height: 180,
-                    fit: BoxFit.cover,
-                    imageUrl:
-                        'https://images.anandtech.com/doci/9770/X-T30_DSF5320_678x452.jpg',
-                    progressIndicatorBuilder:
-                        (context, url, downloadProgress) => Center(
-                      child: SizedBox(
-                        height: 100,
-                        width: 100,
-                        child: Shimmer.fromColors(
-                          baseColor: Colors.grey,
-                          highlightColor: defaultColor,
+                  color: defaultColor,
+                  height: 300,
+                  alignment: Alignment.center,
+                  child: Container(
+                    color: defaultColor,
+                    padding: const EdgeInsets.all(3.0),
+                    width: MediaQuery.of(context).size.width,
+                    child: CachedNetworkImage(
+                      height: 180,
+                      fit: BoxFit.cover,
+                      imageUrl:
+                          'https://images.anandtech.com/doci/9770/X-T30_DSF5320_678x452.jpg',
+                      progressIndicatorBuilder:
+                          (context, url, downloadProgress) => Center(
+                        child: SizedBox(
+                          height: 100,
+                          width: 100,
                           child: Shimmer.fromColors(
                             baseColor: Colors.grey,
                             highlightColor: defaultColor,
-                            child: Image.asset('assets/images/logo.png'),
+                            child: Shimmer.fromColors(
+                              baseColor: Colors.grey,
+                              highlightColor: defaultColor,
+                              child: Image.asset('assets/images/logo.png'),
+                            ),
                           ),
                         ),
                       ),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
                     ),
-                    errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  const Text(
-                    'iphone 13 pro max',
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                  const Spacer(),
-                  defaultButton(
-                      function: () {},
-                      text: 'المزايدة',
-                      radius: 12.0,
-                      width: 200,
-                      background: Colors.orangeAccent),
-                ],
+              const SizedBox(
+                height: 8,
               ),
-            ),
-            Card(
-              shape: RoundedRectangleBorder(
-                side: const BorderSide(width: 1, color: Colors.red),
-                borderRadius: BorderRadius.circular(15.0),
-              ),
-              elevation: 12.0,
-              shadowColor: defaultColor,
-              child: Container(
-                alignment: Alignment.center,
-                height: 50,
-                width: double.infinity,
-                child: CountdownTimer(
-                  endTime: endTime,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      'iphone 13 pro max',
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                    const Spacer(),
+                    defaultButton(
+                        function: () {},
+                        text: 'المزايدة',
+                        radius: 12.0,
+                        width: 200,
+                        background: Color.fromARGB(255, 228, 107, 58)),
+                  ],
                 ),
               ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(8.0),
-              color: Colors.white,
-              width: 600,
-              height: 600,
-              child: ContainedTabBarView(
-                tabs: const [
-                  Text(
-                    'Data',
-                    style: TextStyle(color: Colors.grey),
+              Card(
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(width: 1, color: Colors.red),
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                elevation: 12.0,
+                shadowColor: defaultColor,
+                child: Container(
+                  color: defaultColor,
+                  alignment: Alignment.center,
+                  height: 50,
+                  width: double.infinity,
+                  child: CountdownTimer(
+                    textStyle:
+                        TextStyle(color: Color.fromARGB(255, 228, 107, 58)),
+                    endTime: endTime,
                   ),
-                  Text(
-                    'Auction',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ],
-                views: const [
-                  DataScreen(),
-                  AuctionScreen(),
-                ],
-                onChange: (index) => print(index),
+                ),
               ),
-            ),
-          ],
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                color: defaultColor,
+                width: 600,
+                height: 600,
+                child: ContainedTabBarView(
+                  tabs: const [
+                    Text(
+                      'Data',
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    Text(
+                      'Auction',
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                  ],
+                  views: [
+                    DataScreen(name),
+                    const AuctionScreen(),
+                  ],
+                  onChange: (index) => print(index),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

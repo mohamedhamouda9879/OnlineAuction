@@ -81,116 +81,8 @@ Widget defaultFormField({
       ),
     );
 
-Widget buildGridProduct(/*ProductModel model, context*/) => Container(
-      color: Colors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
-            alignment: AlignmentDirectional.bottomStart,
-            children: [
-              const Image(
-                image: NetworkImage(
-                    'https://images.unsplash.com/photo-1580910051074-3eb694886505?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHBob25lfGVufDB8fDB8fA%3D%3D&w=1000&q=80'),
-                width: double.infinity,
-                height: 200.0,
-              ),
-              if (true)
-                Container(
-                  color: Colors.red,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 5.0,
-                  ),
-                  child: const Text(
-                    'DISCOUNT',
-                    style: TextStyle(
-                      fontSize: 8.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Model Name ',
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 14.0,
-                    height: 1.3,
-                  ),
-                ),
-                Row(
-                  children: [
-                    const Text(
-                      '15',
-                      style: TextStyle(
-                        fontSize: 12.0,
-                        color: defaultColor,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 5.0,
-                    ),
-                    if (true)
-                      const Text(
-                        'Closed',
-                        style: TextStyle(
-                          fontSize: 10.0,
-                          color: Colors.grey,
-                          decoration: TextDecoration.lineThrough,
-                        ),
-                      ),
-                    const Spacer(),
-                    IconButton(
-                      onPressed: () {
-                        // ShopCubit.get(context).ChangeFavorites(model.id);
-
-                        // print(model.id);
-                      },
-                      icon: const CircleAvatar(
-                        radius: 15.0,
-
-                        backgroundColor: defaultColor,
-
-                        // ShopCubit.get(context).favorites![model.id]!
-
-                        //     ? defaultColor
-
-                        //     : Colors.grey,
-
-                        child: Icon(
-                          Icons.favorite_border,
-                          size: 14.0,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                defaultButton(
-                    function: (() {}),
-                    text: 'المزايدة',
-                    radius: 12,
-                    background: Colors.orange)
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-
-Widget CategoryItem(
-        BuildContext context,
-        double width,
-        double height,
-        /*String? image, String? titleEg,*/ String? titleAr,
-        Function function) =>
+Widget CategoryItem(BuildContext context, double width, double height,
+        String? image, String? titleAr, Function function) =>
     Padding(
       padding: const EdgeInsets.all(17.0),
       child: GestureDetector(
@@ -212,8 +104,7 @@ Widget CategoryItem(
                 child: CachedNetworkImage(
                   width: width,
                   height: height,
-                  imageUrl:
-                      'https://fdn.gsmarena.com/imgroot/news/19/12/top-phones-of-2019/-727/gsmarena_001.jpg',
+                  imageUrl: '${image}',
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       CircularProgressIndicator(
                           value: downloadProgress.progress),
