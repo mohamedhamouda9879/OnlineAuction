@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:onlineauction/modules/category/category.dart';
 import 'package:onlineauction/modules/details/details.dart';
 import 'package:onlineauction/shared/bloc_observer.dart';
 import 'package:onlineauction/shared/network/remote/dio_helper.dart';
@@ -71,7 +72,7 @@ class MyApp extends StatelessWidget {
       ),
       themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
-      home: DetailsScreen(),
+      home: CategoriesScreen(),
     );
   }
 }
