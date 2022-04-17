@@ -4,8 +4,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
+import 'package:onlineauction/modules/category/category.dart';
 import 'package:onlineauction/modules/details/auction.dart';
 import 'package:onlineauction/modules/details/data.dart';
+import 'package:onlineauction/modules/favourites/favourites.dart';
+import 'package:onlineauction/modules/profile/profile.dart';
 import 'package:onlineauction/shared/components/components.dart';
 import 'package:onlineauction/shared/styles/colors.dart';
 import 'package:shimmer/shimmer.dart';
@@ -19,6 +22,53 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              const DrawerHeader(
+                decoration: BoxDecoration(
+                  color: defaultColor,
+                ),
+                child: Center(child: Text('Online Auction')),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: defaultButton(
+                  function: () {
+                    NavigateTo(context, CategoriesScreen());
+                  },
+                  text: 'Home',
+                  background: Colors.orange.shade400,
+                  radius: 8,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: defaultButton(
+                  function: () {
+                    NavigateTo(context, FavouritesScreen());
+                  },
+                  text: 'Favorite',
+                  background: Colors.orange.shade400,
+                  radius: 8,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: defaultButton(
+                  function: () {
+                    NavigateTo(context, ProfileScreen());
+                  },
+                  text: 'Profile',
+                  background: Colors.orange.shade400,
+                  radius: 8,
+                ),
+              ),
+            ],
+          ),
+        ),
         backgroundColor: defaultColor,
         body: SingleChildScrollView(
           child: Column(
