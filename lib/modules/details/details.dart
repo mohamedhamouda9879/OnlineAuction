@@ -16,7 +16,7 @@ import 'package:shimmer/shimmer.dart';
 class DetailsScreen extends StatelessWidget {
   int endTime = DateTime.now().millisecondsSinceEpoch + 100000 * 30;
   String name;
-  DetailsScreen(this.name);
+  DetailsScreen(this.name, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -31,8 +31,48 @@ class ProductsScreen extends StatelessWidget {
         "https://mobinaas.com/wp-content/uploads/2019/11/%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D9%85%D9%88%D8%A8%D9%8A%D9%84%D8%A7%D8%AA-%D9%84%D8%A3%D8%AD%D8%AF%D8%AB-%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%AA%D9%81-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9-Samsung-S10-Plus-296x300.jpg",
         '12000',
         "انتهي"),
+    ProductModel(
+        "ايفون 13 برو",
+        "https://shop.orange.eg/content/images/thumbs/0004403_iphone-13-pro_550.jpeg",
+        '23000',
+        'مفتوح'),
+    ProductModel(
+        "جلاكسي سامسونج",
+        "https://mobinaas.com/wp-content/uploads/2019/11/%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D9%85%D9%88%D8%A8%D9%8A%D9%84%D8%A7%D8%AA-%D9%84%D8%A3%D8%AD%D8%AF%D8%AB-%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%AA%D9%81-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9-Samsung-S10-Plus-296x300.jpg",
+        '12000',
+        "انتهي"),
+    ProductModel(
+        "ايفون 13 برو",
+        "https://shop.orange.eg/content/images/thumbs/0004403_iphone-13-pro_550.jpeg",
+        '23000',
+        'مفتوح'),
+    ProductModel(
+        "جلاكسي سامسونج",
+        "https://mobinaas.com/wp-content/uploads/2019/11/%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D9%85%D9%88%D8%A8%D9%8A%D9%84%D8%A7%D8%AA-%D9%84%D8%A3%D8%AD%D8%AF%D8%AB-%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%AA%D9%81-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9-Samsung-S10-Plus-296x300.jpg",
+        '12000',
+        "انتهي"),
   ];
   List<ProductModel> productsItemsWatches = [
+    ProductModel(
+        " ساعة كلاسيك  ",
+        "https://imageengine.victorinox.com/medias/?context=bWFzdGVyfHJvb3R8OTc5NDF8aW1hZ2UvanBlZ3xoMjkvaGQ4LzEzNTE5MTQyNzQ4MTkwL25hdi1jYXJwZXQtd2F0LW1hdmVyaWNrLTY0MHgzNTAuanBnfDU1OGRlNzRmNjE5ZGEzNWI3MjlhN2I3ZWYxNmYzNzZhNDM0MGIwZDI4YTdmZjM0NTVlN2YwNDVlOWRiZTE1YjM",
+        '23000',
+        'مفتوح'),
+    ProductModel(
+        " ساعة فورمال",
+        "https://media.gq.com/photos/6176d56ab36b36132bb9ef36/3:2/w_1686,h_1124,c_limit/goldwatches.jpg",
+        '12000',
+        "انتهي"),
+    ProductModel(
+        "ساعة 13 برو",
+        "https://imageengine.victorinox.com/medias/?context=bWFzdGVyfHJvb3R8OTc5NDF8aW1hZ2UvanBlZ3xoMjkvaGQ4LzEzNTE5MTQyNzQ4MTkwL25hdi1jYXJwZXQtd2F0LW1hdmVyaWNrLTY0MHgzNTAuanBnfDU1OGRlNzRmNjE5ZGEzNWI3MjlhN2I3ZWYxNmYzNzZhNDM0MGIwZDI4YTdmZjM0NTVlN2YwNDVlOWRiZTE1YjM",
+        '23000',
+        'مفتوح'),
+    ProductModel(
+        "جلاك ساعه ",
+        "https://media.gq.com/photos/6176d56ab36b36132bb9ef36/3:2/w_1686,h_1124,c_limit/goldwatches.jpg",
+        '12000',
+        "انتهي"),
     ProductModel(
         " ساعة كلاسيك  ",
         "https://imageengine.victorinox.com/medias/?context=bWFzdGVyfHJvb3R8OTc5NDF8aW1hZ2UvanBlZ3xoMjkvaGQ4LzEzNTE5MTQyNzQ4MTkwL25hdi1jYXJwZXQtd2F0LW1hdmVyaWNrLTY0MHgzNTAuanBnfDU1OGRlNzRmNjE5ZGEzNWI3MjlhN2I3ZWYxNmYzNzZhNDM0MGIwZDI4YTdmZjM0NTVlN2YwNDVlOWRiZTE1YjM",
@@ -74,7 +114,27 @@ class ProductsScreen extends StatelessWidget {
         " فازة قديمة ",
         "https://sites.google.com/site/elomdaeldomiaty/_/rsrc/1468752211028/gallery/954798_527344067328937_115528906_n.jpg?height=400&width=393",
         '12000',
-        "انتهي")
+        "انتهي"),
+    ProductModel(
+        " فازة كلاسيك ",
+        "https://upload.3dlat.com/uploads/3dlat.com_13924173807.jpeg",
+        '23000',
+        'مفتوح'),
+    ProductModel(
+        "  كورشية",
+        "https://sites.google.com/site/elomdaeldomiaty/_/rsrc/1468752211028/gallery/954798_527344067328937_115528906_n.jpg?height=400&width=393",
+        '12000',
+        "انتهي"),
+    ProductModel(
+        " فازة تحفة ",
+        "https://www.supermama.me/photos/93977/inter_111954_2_604f692844c24.jpeg",
+        '23000',
+        'مفتوح'),
+    ProductModel(
+        " فازة قديمة ",
+        "https://sites.google.com/site/elomdaeldomiaty/_/rsrc/1468752211028/gallery/954798_527344067328937_115528906_n.jpg?height=400&width=393",
+        '12000',
+        "انتهي"),
   ];
 
   @override
