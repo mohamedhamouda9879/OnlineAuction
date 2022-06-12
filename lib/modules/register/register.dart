@@ -206,6 +206,32 @@ class RegisterScreen extends StatelessWidget {
                           prefix: Icons.lock_outline,
                         ),
                         const SizedBox(
+                          height: 15.0,
+                        ),
+                        defaultFormField(
+                          controller: rePasswordController,
+                          suffix: OnlineRegisterCubit.get(context).suffix,
+                          type: TextInputType.visiblePassword,
+                          validate: (String? value) {
+                            if (value!.isEmpty) {
+                              return 'password is too short';
+                            }
+                            if (compare != value) {
+                              return 'wrong password';
+                            }
+                            return null;
+                          },
+                          isPassword:
+                              OnlineRegisterCubit.get(context).isPassword,
+                          suffixPressed: () {
+                            OnlineRegisterCubit.get(context)
+                                .changePasswordVisibility();
+                          },
+                          label: 'RePassword',
+                          lines: 1,
+                          prefix: Icons.lock_outline,
+                        ),
+                        const SizedBox(
                           height: 30.0,
                         ),
                         ConditionalBuilderRec(
