@@ -8,7 +8,7 @@ import 'package:onlineauction/shared/styles/colors.dart';
 
 Widget defaultButton({
   double width = double.infinity,
-  Color background = Colors.blue,
+  Color background = Colors.redAccent,
   bool isUpperCase = true,
   double radius = 0.0,
   required Function() function,
@@ -31,11 +31,13 @@ Widget defaultButton({
 Widget defaultTextButton({
   required VoidCallback function,
   required String text,
+  Color? color,
 }) =>
     TextButton(
       onPressed: function,
       child: Text(
         text.toUpperCase(),
+        style: TextStyle(color: color),
       ),
     );
 
@@ -77,7 +79,16 @@ Widget defaultFormField({
                 ),
               )
             : null,
-        border: const OutlineInputBorder(),
+        fillColor: Colors.white,
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(25.0),
+          borderSide: BorderSide(
+            color: Colors.redAccent,
+          ),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(18.0),
+        ),
       ),
     );
 

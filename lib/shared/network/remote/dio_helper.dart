@@ -8,7 +8,7 @@ class DioHelper {
   static init() {
     dio = Dio(
       BaseOptions(
-        baseUrl: 'https://whitecompressor.com/api/',
+        baseUrl: 'https://onlineauction-egypt.com/api/',
         receiveDataWhenStatusError: true,
       ),
     );
