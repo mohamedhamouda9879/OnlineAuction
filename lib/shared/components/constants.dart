@@ -18,3 +18,6 @@ void printFullText(String text) {
 }
 
 String? TOKEN = '';
+String TITLE = '';
+String USERID = '';
+String PRODUCTID = '';

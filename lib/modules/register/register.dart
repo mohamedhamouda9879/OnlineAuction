@@ -11,6 +11,7 @@ import 'package:onlineauction/modules/register/cubit/states.dart';
 import 'package:onlineauction/shared/components/components.dart';
 import 'package:onlineauction/shared/components/constants.dart';
 import 'package:onlineauction/shared/network/local/cache_helper.dart';
+import 'package:onlineauction/shared/styles/colors.dart';
 
 class RegisterScreen extends StatelessWidget {
   var nameController = TextEditingController();
@@ -58,7 +59,7 @@ class RegisterScreen extends StatelessWidget {
           return SafeArea(
             child: Scaffold(
               resizeToAvoidBottomInset: true,
-              backgroundColor: HexColor('#395153'),
+              backgroundColor: defaultColor,
               body: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(18.0),

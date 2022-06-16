@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:onlineauction/layouts/cubit/states.dart';
+import 'package:onlineauction/modules/about/about.dart';
 import 'package:onlineauction/modules/category/category.dart';
-import 'package:onlineauction/modules/favourites/favourites.dart';
-import 'package:onlineauction/modules/profile/profile.dart';
+import 'package:onlineauction/modules/instrauctions/instrauctions.dart';
 
 class AppCubit extends Cubit<AppStates> {
   AppCubit() : super(AppInitialState());
@@ -17,8 +17,8 @@ class AppCubit extends Cubit<AppStates> {
 
   List<Widget> bottomScreens = [
     CategoriesScreen(),
-    const FavouritesScreen(),
-    const ProfileScreen(),
+    const AboutScreen(),
+    const InstructionsScreen(),
   ];
 
   void changeBottomNav(int index) {
