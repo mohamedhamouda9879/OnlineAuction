@@ -8,6 +8,7 @@ import 'package:onlineauction/modules/add_product/cubit/states.dart';
 import 'package:onlineauction/modules/login/login.dart';
 import 'package:onlineauction/shared/components/components.dart';
 import 'package:onlineauction/shared/components/constants.dart';
+import 'package:onlineauction/shared/styles/colors.dart';
 
 class AddProductScreen extends StatelessWidget {
   var describtionController = TextEditingController();
@@ -28,6 +29,7 @@ class AddProductScreen extends StatelessWidget {
           builder: (context, state) {
             return SafeArea(
               child: Scaffold(
+                backgroundColor: defaultColor,
                 resizeToAvoidBottomInset: false,
                 body: Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -64,17 +66,21 @@ class AddProductScreen extends StatelessWidget {
                           controller: address1Controller,
                           type: TextInputType.name,
                           validate: (String? value) {},
-                          label: 'Address 1',
+                          label: 'Address ',
                           prefix: Icons.title),
                       SizedBox(
                         height: 15,
                       ),
-                      defaultFormField(
-                          controller: address2Controller,
-                          type: TextInputType.name,
-                          validate: (String? value) {},
-                          label: 'Address 2',
-                          prefix: Icons.title),
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          'Photo',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
                       SizedBox(
                         height: 15,
                       ),
@@ -128,6 +134,7 @@ class AddProductScreen extends StatelessWidget {
                         height: 15,
                       ),
                       defaultButton(
+                          radius: 12.0,
                           function: () async {
                             if (TOKEN != '' && TOKEN != null) {
                               File image;
@@ -142,14 +149,14 @@ class AddProductScreen extends StatelessWidget {
                                 'Price': priceController.text,
                                 'Title': titleController.text,
                                 'Address': address1Controller.text,
-                                'Address': address2Controller.text,
+                                'Address': address1Controller.text,
                                 'Photo': await MultipartFile.fromFile(
                                   AddProductCubit.get(context).image!.path,
                                   filename:
                                       AddProductCubit.get(context).image!.path,
                                 ),
                                 'categories_id': id,
-                                'id': '1',
+                                'id': id,
                               });
 
                               Dio dio = Dio();

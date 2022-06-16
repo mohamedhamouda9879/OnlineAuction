@@ -21,3 +21,5 @@ String? TOKEN = '';
 String TITLE = '';
 String USERID = '';
 String PRODUCTID = '';
+
+String DATE = '';

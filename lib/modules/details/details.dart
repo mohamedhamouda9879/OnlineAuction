@@ -5,6 +5,7 @@ import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
+import 'package:intl/intl.dart';
 import 'package:onlineauction/modules/about/about.dart';
 import 'package:onlineauction/modules/category/category.dart';
 import 'package:onlineauction/modules/details/auction.dart';
@@ -43,6 +44,21 @@ class DetailsScreen extends StatelessWidget {
           }
         },
         builder: (context, state) {
+          // final DateTime now = DateTime.now();
+          // final DateFormat formatter = DateFormat('yyyy-MM-dd');
+          // final String formatted = formatter.format(now);
+          // var now2 = DateTime.parse(formatted.toString());
+          // // var dataaa = ProductDetailsCubit.get(context).date;
+          // var myDate = ProductDetailsCubit.get(context).dateTime;
+          // final String formatted2 = formatter.format(myDate!);
+          // var now3 = DateTime.parse(formatted2.toString());
+          // bool valDate = now2.isAfter(now3);
+          // print(valDate);
+          // print('--------ahbd y hamouda-------');
+          // print(ProductDetailsCubit.get(context).date);
+          // print(now2.toString());
+          // print(now3.toString());
+          print(ProductDetailsCubit.get(context).date);
           if (state is ProductsDetailsSuccessState) {
             return SafeArea(
               child: Scaffold(
@@ -114,200 +130,197 @@ class DetailsScreen extends StatelessWidget {
                                   color: Colors.white),
                             ),
                             const Spacer(),
-                            defaultButton(
-                                function: () {
-                                  showDialog(
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        return BlocProvider(
-                                          create: (context) =>
-                                              ProductDetailsCubit(),
-                                          child: BlocConsumer<
-                                              ProductDetailsCubit,
-                                              ProductsDetailsStates>(
-                                            listener: (context, state) {},
-                                            builder: (context, state) {
-                                              return AlertDialog(
-                                                content: Stack(
-                                                  children: <Widget>[
-                                                    Positioned(
-                                                      right: -40.0,
-                                                      top: -40.0,
-                                                      child: InkResponse(
-                                                        onTap: () {
-                                                          Navigator.of(context)
-                                                              .pop();
-                                                        },
-                                                        child: CircleAvatar(
-                                                          child:
-                                                              Icon(Icons.close),
-                                                          backgroundColor:
-                                                              Colors.red,
+                            false
+                                ? defaultButton(
+                                    function: () {},
+                                    text: 'مغلق',
+                                    radius: 12.0,
+                                    width: 150,
+                                    background:
+                                        Color.fromARGB(255, 228, 107, 58))
+                                : defaultButton(
+                                    function: () {
+                                      showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return BlocProvider(
+                                              create: (context) =>
+                                                  ProductDetailsCubit(),
+                                              child: BlocConsumer<
+                                                  ProductDetailsCubit,
+                                                  ProductsDetailsStates>(
+                                                listener: (context, state) {},
+                                                builder: (context, state) {
+                                                  return AlertDialog(
+                                                    content: Stack(
+                                                      children: <Widget>[
+                                                        Positioned(
+                                                          right: -40.0,
+                                                          top: -40.0,
+                                                          child: InkResponse(
+                                                            onTap: () {
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .pop();
+                                                            },
+                                                            child: CircleAvatar(
+                                                              child: Icon(
+                                                                  Icons.close),
+                                                              backgroundColor:
+                                                                  Colors.red,
+                                                            ),
+                                                          ),
                                                         ),
-                                                      ),
-                                                    ),
-                                                    Form(
-                                                      key: formKey,
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        children: <Widget>[
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    8.0),
-                                                            child:
-                                                                defaultFormField(
-                                                              controller:
-                                                                  priceController,
-                                                              type:
-                                                                  TextInputType
+                                                        Form(
+                                                          key: formKey,
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children: <Widget>[
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            8.0),
+                                                                child:
+                                                                    defaultFormField(
+                                                                  controller:
+                                                                      priceController,
+                                                                  type: TextInputType
                                                                       .number,
-                                                              validate: (String?
-                                                                  v) {},
-                                                              label: 'Price',
-                                                              prefix:
-                                                                  Icons.money,
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    8.0),
-                                                            child: defaultFormField(
-                                                                controller:
-                                                                    visaCardController,
-                                                                type:
-                                                                    TextInputType
+                                                                  validate:
+                                                                      (String?
+                                                                          v) {},
+                                                                  label:
+                                                                      'Price',
+                                                                  prefix: Icons
+                                                                      .money,
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            8.0),
+                                                                child: defaultFormField(
+                                                                    controller:
+                                                                        visaCardController,
+                                                                    type: TextInputType
                                                                         .number,
-                                                                validate:
-                                                                    (String?
-                                                                        v) {},
-                                                                label:
-                                                                    'Card Number',
-                                                                prefix: Icons
-                                                                    .card_giftcard),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    8.0),
-                                                            child:
-                                                                defaultFormField(
-                                                              controller:
-                                                                  dateController,
-                                                              type:
-                                                                  TextInputType
-                                                                      .name,
-                                                              validate: (String?
-                                                                  v) {},
-                                                              label: 'MM/YYYY',
-                                                              prefix: Icons
-                                                                  .date_range,
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    8.0),
-                                                            child:
-                                                                defaultFormField(
-                                                              controller:
-                                                                  cvvController,
-                                                              type:
-                                                                  TextInputType
+                                                                    validate:
+                                                                        (String?
+                                                                            v) {},
+                                                                    label:
+                                                                        'Card Number',
+                                                                    prefix: Icons
+                                                                        .card_giftcard),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            8.0),
+                                                                child:
+                                                                    defaultFormField(
+                                                                  controller:
+                                                                      dateController,
+                                                                  type:
+                                                                      TextInputType
+                                                                          .name,
+                                                                  validate:
+                                                                      (String?
+                                                                          v) {},
+                                                                  label:
+                                                                      'MM/YYYY',
+                                                                  prefix: Icons
+                                                                      .date_range,
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            8.0),
+                                                                child:
+                                                                    defaultFormField(
+                                                                  controller:
+                                                                      cvvController,
+                                                                  type: TextInputType
                                                                       .number,
-                                                              validate: (String?
-                                                                  v) {},
-                                                              label: 'CVV',
-                                                              prefix:
-                                                                  Icons.numbers,
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                    .all(8.0),
-                                                            child:
-                                                                defaultButton(
-                                                              function: () {
-                                                                if (formKey
-                                                                    .currentState!
-                                                                    .validate()) {
-                                                                  // _formKey.currentState!.save();
-                                                                  if (TOKEN !=
-                                                                          '' &&
-                                                                      TOKEN !=
-                                                                          null) {
-                                                                    ProductDetailsCubit.get(context).AddAcc(
-                                                                        productId:
-                                                                            id,
-                                                                        name:
-                                                                            TITLE,
-                                                                        price: priceController
-                                                                            .text,
-                                                                        userId:
-                                                                            USERID,
-                                                                        visacard:
-                                                                            visaCardController
+                                                                  validate:
+                                                                      (String?
+                                                                          v) {},
+                                                                  label: 'CVV',
+                                                                  prefix: Icons
+                                                                      .numbers,
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    const EdgeInsets
+                                                                            .all(
+                                                                        8.0),
+                                                                child:
+                                                                    defaultButton(
+                                                                  function: () {
+                                                                    if (formKey
+                                                                        .currentState!
+                                                                        .validate()) {
+                                                                      // _formKey.currentState!.save();
+                                                                      if (TOKEN !=
+                                                                              '' &&
+                                                                          TOKEN !=
+                                                                              null) {
+                                                                        ProductDetailsCubit.get(context).AddAcc(
+                                                                            productId:
+                                                                                id,
+                                                                            name:
+                                                                                TITLE,
+                                                                            price: priceController
                                                                                 .text,
-                                                                        date: dateController
-                                                                            .text,
-                                                                        cvv: cvvController
-                                                                            .text,
-                                                                        context:
-                                                                            context);
-                                                                  } else {
-                                                                    showToast(
-                                                                        message:
-                                                                            'Please Login First',
-                                                                        toastStates:
-                                                                            ToastStates.WARNING);
-                                                                    NavigateAndFinish(
-                                                                        context,
-                                                                        LoginScreen());
-                                                                  }
-                                                                }
-                                                              },
-                                                              text: 'Submit',
-                                                              radius: 12.0,
-                                                            ),
-                                                          )
-                                                        ],
-                                                      ),
+                                                                            userId:
+                                                                                USERID,
+                                                                            visacard:
+                                                                                visaCardController.text,
+                                                                            date: dateController.text,
+                                                                            cvv: cvvController.text,
+                                                                            context: context);
+                                                                      } else {
+                                                                        showToast(
+                                                                            message:
+                                                                                'Please Login First',
+                                                                            toastStates:
+                                                                                ToastStates.WARNING);
+                                                                        NavigateAndFinish(
+                                                                            context,
+                                                                            LoginScreen());
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  text:
+                                                                      'Submit',
+                                                                  radius: 12.0,
+                                                                ),
+                                                              )
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          ),
-                                        );
-                                      });
-                                },
-                                text: 'المزايدة الان',
-                                radius: 12.0,
-                                width: 150,
-                                background: Color.fromARGB(255, 228, 107, 58)),
+                                                  );
+                                                },
+                                              ),
+                                            );
+                                          });
+                                    },
+                                    text: 'المزايدة الان',
+                                    radius: 12.0,
+                                    width: 150,
+                                    background:
+                                        Color.fromARGB(255, 228, 107, 58),
+                                  ),
                           ],
-                        ),
-                      ),
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          side: const BorderSide(width: 1, color: Colors.red),
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        elevation: 12.0,
-                        shadowColor: defaultColor,
-                        child: Container(
-                          color: defaultColor,
-                          alignment: Alignment.center,
-                          height: 50,
-                          width: double.infinity,
-                          child: CountdownTimer(
-                            textStyle: TextStyle(
-                                color: Color.fromARGB(255, 228, 107, 58)),
-                            endTime: endTime,
-                          ),
                         ),
                       ),
                       Container(
@@ -339,7 +352,7 @@ class DetailsScreen extends StatelessWidget {
               ),
             );
           } else {
-            return Container();
+            return Scaffold();
           }
         },
       ),

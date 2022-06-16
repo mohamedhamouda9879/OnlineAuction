@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:onlineauction/models/details.dart';
 import 'package:onlineauction/modules/details/cubit/states.dart';
 import 'package:onlineauction/shared/components/components.dart';
@@ -14,6 +15,9 @@ class ProductDetailsCubit extends Cubit<ProductsDetailsStates> {
   static ProductDetailsCubit get(context) => BlocProvider.of(context);
 
   DetailsModel? productModel;
+  int? x = 0;
+  String date = '';
+  DateTime? dateTime;
 
   void getProductDetails(BuildContext context, String id) async {
     await DioHelper.getData(Url: 'inforramtionaus/$id', auth: 'Bearer $TOKEN')
@@ -22,6 +26,19 @@ class ProductDetailsCubit extends Cubit<ProductsDetailsStates> {
       print(value.data['product']);
       productModel = DetailsModel.fromJson(value.data['product']);
       print('done y basha details');
+      x = int.parse(productModel!.createdAt!.substring(8, 10)); // 14
+
+      // 25
+      if (x! + 7 > 30) {
+        x = (x! + 7) - 30; // 2
+      } else {
+        x = (x! + 7);
+      }
+      date = '${productModel!.createdAt!.substring(0, 8)}${x}';
+      print(date);
+      dateTime = DateFormat('yyyy-MM-dd').parse(date);
+      DATE = date;
+      // print(date);
       emit(ProductsDetailsSuccessState());
     }).catchError((error) {
       print(error);
