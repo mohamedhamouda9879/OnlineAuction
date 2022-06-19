@@ -24,9 +24,9 @@ class ProductDetailsCubit extends Cubit<ProductsDetailsStates> {
         .then((value) {
       print('done y basha details');
       print(value.data['product']);
-      productModel = DetailsModel.fromJson(value.data['product']);
+      productModel = DetailsModel.fromJson(value.data);
       print('done y basha details');
-      x = int.parse(productModel!.createdAt!.substring(8, 10)); // 14
+      x = int.parse(productModel!.product!.createdAt!.substring(8, 10)); // 14
 
       // 25
       if (x! + 7 > 30) {
@@ -34,7 +34,7 @@ class ProductDetailsCubit extends Cubit<ProductsDetailsStates> {
       } else {
         x = (x! + 7);
       }
-      date = '${productModel!.createdAt!.substring(0, 8)}${x}';
+      date = '${productModel!.product!.createdAt!.substring(0, 8)}${x}';
       print(date);
       dateTime = DateFormat('yyyy-MM-dd').parse(date);
       DATE = date;

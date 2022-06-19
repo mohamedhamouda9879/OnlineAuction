@@ -44,7 +44,7 @@ class DataScreen extends StatelessWidget {
                       ),
                       Spacer(),
                       Text(
-                          '${ProductDetailsCubit.get(context).productModel!.createdAt!.substring(0, 10).toString()} / ${ProductDetailsCubit.get(context).productModel!.createdAt!.substring(12, 16).toString()}',
+                          '${ProductDetailsCubit.get(context).productModel!.product!.createdAt!.substring(0, 10).toString()} / ${ProductDetailsCubit.get(context).productModel!.product!.createdAt!.substring(12, 16).toString()}',
                           style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
@@ -76,7 +76,7 @@ class DataScreen extends StatelessWidget {
                       ),
                       Spacer(),
                       Text(
-                          '${ProductDetailsCubit.get(context).productModel!.createdAt!.substring(0, 8)}${ProductDetailsCubit.get(context).x} / ${ProductDetailsCubit.get(context).productModel!.createdAt!.substring(12, 16).toString()}',
+                          '${ProductDetailsCubit.get(context).productModel!.product!.createdAt!.substring(0, 8)}${ProductDetailsCubit.get(context).x} / ${ProductDetailsCubit.get(context).productModel!.product!.createdAt!.substring(12, 16).toString()}',
                           style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
@@ -110,6 +110,7 @@ class DataScreen extends StatelessWidget {
                       Text(
                           ProductDetailsCubit.get(context)
                               .productModel!
+                              .product!
                               .describtion!,
                           style: TextStyle(
                               fontSize: 15,

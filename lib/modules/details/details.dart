@@ -37,8 +37,10 @@ class DetailsScreen extends StatelessWidget {
       child: BlocConsumer<ProductDetailsCubit, ProductsDetailsStates>(
         listener: (context, state) {
           if (state is ProductsDetailsSuccessState) {
-            TITLE = ProductDetailsCubit.get(context).productModel!.title!;
-            USERID = ProductDetailsCubit.get(context).productModel!.userId!;
+            TITLE =
+                ProductDetailsCubit.get(context).productModel!.product!.title!;
+            USERID =
+                ProductDetailsCubit.get(context).productModel!.product!.userId!;
 
             // PRODUCTID=ProductDetailsCubit.get(context).productModel!.id!;
           }
@@ -89,7 +91,7 @@ class DetailsScreen extends StatelessWidget {
                               height: 180,
                               fit: BoxFit.fill,
                               imageUrl:
-                                  'https://onlineauction-egypt.com/public/uploads/${ProductDetailsCubit.get(context).productModel?.productImg}',
+                                  'https://onlineauction-egypt.com/public/uploads/${ProductDetailsCubit.get(context).productModel?.product!.productImg}',
                               progressIndicatorBuilder:
                                   (context, url, downloadProgress) => Center(
                                 child: SizedBox(
@@ -123,6 +125,7 @@ class DetailsScreen extends StatelessWidget {
                             Text(
                               ProductDetailsCubit.get(context)
                                   .productModel!
+                                  .product!
                                   .title!,
                               style: TextStyle(
                                   fontSize: 17,
