@@ -70,7 +70,7 @@ class ProductDetailsCubit extends Cubit<ProductsDetailsStates> {
     ).then((value) {
       print('bos value');
       print(value.data);
-      if (value.data[0] == 'success') {
+      if (value.data['message'] == 'success') {
         showToast(message: 'Success', toastStates: ToastStates.SUCCESS);
         emit(ProductsAddAccSuccessState());
       } else {

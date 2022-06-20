@@ -17,7 +17,7 @@ class ContactCubit extends Cubit<ContactsStates> {
       required String message,
       required BuildContext context}) async {
     await DioHelper.postData(
-      Url: "register",
+      Url: "contact",
       data: {
         'name': name,
         'email': email,
