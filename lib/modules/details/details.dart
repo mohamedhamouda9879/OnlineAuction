@@ -279,7 +279,7 @@ class DetailsScreen extends StatelessWidget {
                                                                             productId:
                                                                                 id,
                                                                             name:
-                                                                                TITLE,
+                                                                                USERNAME,
                                                                             price: priceController
                                                                                 .text,
                                                                             userId:
