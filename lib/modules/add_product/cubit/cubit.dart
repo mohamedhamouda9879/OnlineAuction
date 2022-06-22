@@ -27,12 +27,9 @@ class AddProductCubit extends Cubit<AddProductStates> {
 
     if (filepiked != null) {
       image = File(filepiked.path);
-      print('hamouda error get imahe aho');
-      print(image.toString());
+
       emit(SelectedImagesState());
-    } else {
-      print('no select image');
-    }
+    } else {}
   }
 
   void AddProducts(
@@ -69,7 +66,6 @@ class AddProductCubit extends Cubit<AddProductStates> {
       showToast(message: 'Added success', toastStates: ToastStates.SUCCESS);
       emit(AddProductSuccessState());
     }).catchError((error) {
-      print('error y hamouda ${error.toString()}');
       showToast(
           message: "Please Enter Right Data.", toastStates: ToastStates.EROOR);
       emit(AddProductErrorState(error.toString()));

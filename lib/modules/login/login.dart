@@ -39,7 +39,6 @@ class LoginScreen extends StatelessWidget {
                   message: 'Successfully Login',
                   toastStates: ToastStates.SUCCESS);
             } else {
-              print('hamouda');
               showToast(
                   message: "Password or Email  incorrect",
                   toastStates: ToastStates.EROOR);
@@ -128,6 +127,7 @@ class LoginScreen extends StatelessWidget {
                             builder: (context) => defaultButton(
                               function: () {
                                 if (formKey.currentState!.validate()) {
+                                  USERNAME = EmailController.text;
                                   OnlineLoginCubit.get(context).UserLogin(
                                     email: EmailController.text,
                                     password: passwordController.text,

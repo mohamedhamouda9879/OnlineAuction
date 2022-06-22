@@ -78,7 +78,7 @@ class ContactUsScreen extends StatelessWidget {
                       },
                       text: 'Send Message',
                       radius: 12,
-                      width: 190)
+                      width: 190),
                 ],
               ),
             ),
