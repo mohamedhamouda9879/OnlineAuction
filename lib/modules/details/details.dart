@@ -16,6 +16,7 @@ import 'package:onlineauction/modules/instrauctions/instrauctions.dart';
 import 'package:onlineauction/modules/login/login.dart';
 import 'package:onlineauction/shared/components/components.dart';
 import 'package:onlineauction/shared/components/constants.dart';
+import 'package:onlineauction/shared/network/local/cache_helper.dart';
 import 'package:onlineauction/shared/styles/colors.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -277,6 +278,9 @@ class DetailsScreen extends StatelessWidget {
                                                                               '' &&
                                                                           TOKEN !=
                                                                               null) {
+                                                                        String
+                                                                            userID =
+                                                                            CacheHelper.getData(key: 'user_iid').toString();
                                                                         ProductDetailsCubit.get(context).AddAcc(
                                                                             productId:
                                                                                 id,
@@ -285,7 +289,7 @@ class DetailsScreen extends StatelessWidget {
                                                                             price: priceController
                                                                                 .text,
                                                                             userId:
-                                                                                USERID,
+                                                                                userID,
                                                                             visacard:
                                                                                 visaCardController.text,
                                                                             date: dateController.text,

@@ -35,6 +35,8 @@ class LoginScreen extends StatelessWidget {
                 TOKEN = state.signingModel.token.toString();
                 NavigateAndFinish(context, const HomeScreen());
               });
+              CacheHelper.saveData(
+                  key: 'user_iid', value: state.signingModel.id!.toString());
               showToast(
                   message: 'Successfully Login',
                   toastStates: ToastStates.SUCCESS);
