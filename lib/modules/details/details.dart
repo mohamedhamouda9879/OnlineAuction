@@ -133,7 +133,9 @@ class DetailsScreen extends StatelessWidget {
                                   color: Colors.white),
                             ),
                             const Spacer(),
-                            false
+                            ProductDetailsCubit.get(context)
+                                    .productModel!
+                                    .booll!
                                 ? defaultButton(
                                     function: () {},
                                     text: 'مغلق',

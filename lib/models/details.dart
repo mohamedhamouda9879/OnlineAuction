@@ -2,8 +2,9 @@ class DetailsModel {
   String? message;
   Product? product;
   List<User>? user;
+  bool? booll;
 
-  DetailsModel({this.message, this.product, this.user});
+  DetailsModel({this.message, this.product, this.user, this.booll});
 
   DetailsModel.fromJson(Map<String, dynamic> json) {
     message = json['message'];
@@ -15,6 +16,7 @@ class DetailsModel {
         user!.add(new User.fromJson(v));
       });
     }
+    booll = json['bool'];
   }
 
   Map<String, dynamic> toJson() {
@@ -26,6 +28,7 @@ class DetailsModel {
     if (this.user != null) {
       data['user'] = this.user!.map((v) => v.toJson()).toList();
     }
+    data['bool'] = this.booll;
     return data;
   }
 }

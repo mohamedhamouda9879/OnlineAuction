@@ -76,7 +76,7 @@ class DataScreen extends StatelessWidget {
                       ),
                       Spacer(),
                       Text(
-                          '${ProductDetailsCubit.get(context).productModel!.product!.createdAt!.substring(0, 8)}${ProductDetailsCubit.get(context).x} / ${ProductDetailsCubit.get(context).productModel!.product!.createdAt!.substring(12, 16).toString()}',
+                          '${ProductDetailsCubit.get(context).productModel!.product!.updatedAt!.substring(0, 10).toString()} / ${ProductDetailsCubit.get(context).productModel!.product!.updatedAt!.substring(12, 16).toString()}',
                           style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w600,

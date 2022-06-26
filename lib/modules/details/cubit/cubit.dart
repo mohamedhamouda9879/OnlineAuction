@@ -15,7 +15,7 @@ class ProductDetailsCubit extends Cubit<ProductsDetailsStates> {
   static ProductDetailsCubit get(context) => BlocProvider.of(context);
 
   DetailsModel? productModel;
-  int? x = 0;
+  String? start, end;
   String date = '';
   DateTime? dateTime;
 
@@ -26,18 +26,18 @@ class ProductDetailsCubit extends Cubit<ProductsDetailsStates> {
       print(value.data['product']);
       productModel = DetailsModel.fromJson(value.data);
       print('done y basha details');
-      x = int.parse(productModel!.product!.createdAt!.substring(8, 10)); // 14
-
-      // 25
-      if (x! + 7 > 30) {
-        x = (x! + 7) - 30; // 2
-      } else {
-        x = (x! + 7);
-      }
-      date = '${productModel!.product!.createdAt!.substring(0, 8)}${x}';
-      print(date);
-      dateTime = DateFormat('yyyy-MM-dd').parse(date);
-      DATE = date;
+      // start = productModel!.product!.createdAt!.substring(0, 10); // 14
+      // end =  productModel!.product!.updatedAt!.substring(0, 10);
+      // // 25
+      // if (x! + 7 > 30) {
+      //   x = (x! + 7) - 30; // 2
+      // } else {
+      //   x = (x! + 7);
+      // }
+      // date = '${productModel!.product!.createdAt!.substring(0, 8)}${x}';
+      // print(date);
+      // dateTime = DateFormat('yyyy-MM-dd').parse(date);
+      // DATE = date;
       // print(date);
       emit(ProductsDetailsSuccessState());
     }).catchError((error) {
