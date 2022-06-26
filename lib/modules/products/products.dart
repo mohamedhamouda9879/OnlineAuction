@@ -180,7 +180,7 @@ class ProductsScreen extends StatelessWidget {
                   itemCount: ProductCubit.get(context).productModel.length,
                   itemBuilder: (BuildContext ctx, index) {
                     return buildGridProduct(
-                        'https://onlineauction-egypt.com/public/uploads/${ProductCubit.get(context).productModel[index].nationalImg!}',
+                        'https://onlineauction-egypt.com/public/uploads/${ProductCubit.get(context).productModel[index].productImg!}',
                         ProductCubit.get(context).productModel[index].title!,
                         ProductCubit.get(context)
                             .productModel[index]
